@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>GPS</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="startGPS()"><ion-icon name="add"></ion-icon>Registrar Tienda</button>
+    </ion-buttons>  
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Actualizar Posición"
+      refreshingSpinner="circles"
+      refreshingText="Actualizando Posición...">
+    </ion-refresher-content>
+</ion-refresher>
+
+<ion-card>
+  <ion-card-header>
+    Ingrese los Datos de su Tienda.
+  </ion-card-header>
+
+<ion-list>
+  <ion-item>
+    <ion-label floating>Nombre De Tu Tienda</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tienda</ion-label>
+    <ion-select [(ngModel)]="gender">
+     <ion-option value="f">Female</ion-option>
+     <ion-option value="m">Male</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+     <ion-label>Tipo</ion-label>
+     <ion-select [(ngModel)]="gender">
+       <ion-option value="f">Female</ion-option>
+       <ion-option value="m">Male</ion-option>
+     </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Especifique</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+</ion-list>
+</ion-card>
+
+<div #map id="map">Posicion Actual</div>
+
+
+
+</ion-content>
